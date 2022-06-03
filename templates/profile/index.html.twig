@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('home.css')}}">
+	<link rel="stylesheet" href="{{asset('profile.css')}}">
+{% endblock %}
+
+{% block content %}
+	<div class="profile-container">
+		<h2>My Profile</h2>
+		<div class="user-profile">
+			<div class='profile-elem'>First Name:
+				{{ app.user.firstName }}</div>
+			<div class='profile-elem'>Last Name:
+				{{ app.user.lastName }}</div>
+			<div class='profile-elem'>Email:
+				{{ app.user.email }}</div>
+		</div>
+	</div>
+{% endblock %}
