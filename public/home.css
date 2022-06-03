@@ -1,0 +1,186 @@
+/* https: //colorhunt.co/palette/f4abc4595b83333456060930 */
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: #1a1a1d;
+    color: white;
+}
+
+.container{
+    display: grid;
+    gap: 20px;
+    grid-template-areas: 
+        "logo"
+        "nav"
+        "content"
+        "sidebar"
+        "ad"
+        "footer";
+}
+
+/* 2 columns layout */
+@media (min-width: 500px) {
+    .container {
+        height: 100vh;
+        grid-template-columns: 1fr 3fr;
+        grid-template-areas:
+            "logo  logo"
+            "nav     nav"
+            "sidebar content"
+            "ad      footer";
+        grid-template-rows: 30px 50px auto 50px;
+    }
+
+    .logo {
+        /* background-color: #c3073f; */
+        height: 50px;
+        padding: 5px;
+        text-align: center;
+        background-color: #c3073f;
+        border: 2px solid #c3073f;
+    }
+
+    .main-nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .main-nav li {
+        background-color: #4e4e50;
+        border-radius: 10px;
+        margin: 10px;
+        padding: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
+
+    .main-nav li a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .main-nav li a:hover {
+        text-decoration: none;
+        color: #c3073f;
+    }
+
+    .content {
+        border: 2px solid #c3073f;
+    }
+
+    .side {
+        border: 2px solid #c3073f;
+    }
+
+    .ad {
+        border: 2px solid #c3073f;
+    }
+
+    .main-footer {
+        padding: 5px;
+        background-color: #c3073f;
+        text-align: center;
+    }
+}
+
+/* 3 columns layout */
+@media (min-width: 700px) {
+    .container {
+        height: 100vh;
+        grid-template-columns: 1fr 4fr 1fr;
+        grid-template-areas:
+            "logo logo logo"
+            "nav    content sidebar"
+            "nav    content ad"
+            "footer footer  footer";
+        grid-template-rows: 50px auto 200px 50px;
+    }
+
+    .logo{
+        /* background-color: #c3073f; */
+        height: 45px;
+        padding: 5px;
+        text-align: center;
+        background-color: #c3073f;
+        border: 2px solid #c3073f;
+    }
+
+    .main-nav{
+        background-color: #4e4e50;
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        list-style: none;
+    }
+
+    .main-nav li{
+        margin: 10px;
+    }
+
+    .main-nav li a{
+        text-decoration: none;
+        color: white;
+    }
+
+    .main-nav li a:hover {
+        text-decoration: none;
+        color: #c3073f;
+    }
+
+    .content{
+        border: 2px solid #c3073f;
+    }
+
+    .side{
+        border: 2px solid #c3073f;
+    }
+
+    .ad{
+        border: 2px solid #c3073f;
+    }
+
+    .ad img{
+        width: 300px;
+        height: 190px;
+    }
+
+    .main-footer{
+        padding: 5px;
+        background-color: #c3073f;
+        text-align: center;
+    }
+
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.content {
+    grid-area: content;
+}
+
+.main-nav {
+    grid-area: nav;
+}
+
+.side {
+    grid-area: sidebar;
+}
+
+.ad {
+    grid-area: ad;
+}
+
+.main-footer {
+    grid-area: footer;
+}
