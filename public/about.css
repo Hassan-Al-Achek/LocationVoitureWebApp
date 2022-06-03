@@ -1,0 +1,37 @@
+.social-nav ul{
+    list-style: none;
+}
+
+.social-nav li{
+    display: inline-block;
+    background-color: #36c7d0;
+    padding: 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.social-nav li a{
+    text-decoration: none;
+    color: white;
+}
+
+.social-nav li a:hover {
+    text-decoration: none;
+    color: #262833;
+}
+
+.social-nav li i {
+    padding: 5px;
+}
+
+.social-nav{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px;
+}

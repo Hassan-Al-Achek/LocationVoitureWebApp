@@ -23,6 +23,66 @@
 		{% endblock %}
 	</head>
 	<body>
-		{% block body %}{% endblock %}
+		{% block body %}
+			<div class="container">
+				<h2 class="logo">
+					Get Your Key
+				</h2>
+				<nav class="main-nav">
+					<ul>
+						<li>
+							<a class="nav-link" href="/">
+								<i class="fa-solid fa-house"></i>
+								Home
+							</a>
+						</li>
+						<li>
+							<a class="nav-link" href="/cars">
+								<i class="fa-solid fa-images"></i>
+								Cars Gallery
+							</a>
+						</li>
+						<li>
+							<a class="nav-link" href="/about">
+								<i class="fa-solid fa-address-card"></i>
+								About Us
+							</a>
+						</li>
+						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+							<li>
+								<a class="nav-link" href="/profile">
+									<i class="fa-solid fa-id-card-clip"></i>
+									View Profile
+								</a>
+							</li>
+							<li>
+								<a class="nav-link" href="/logout">
+									<i class="fa-solid fa-right-from-bracket"></i>
+									Log Out
+								</a>
+							</li>
+						{% else %}
+							<li>
+								<a class="nav-link" href="/login">
+									<i class="fa-solid fa-right-to-bracket"></i>
+									Log In
+								</a>
+							</li>
+						{% endif %}
+					</ul>
+				</nav>
+				<section class="content">
+					{% block content %}
+						<p>Welcome to Get Your Key for car renting</p>
+						<p>This Web App powered by symfony + PHP</p>
+					{% endblock %}
+				</section>
+				<aside class="side">Sidebar</aside>
+				<div class="ad"><img src="{{ asset("images/") }}" alt="Ads"></div>
+				<footer class="main-footer">
+					Made by Hassan Al Achek with &hearts; &copy; 2022
+				</footer>
+			</div>
+		{% endblock %}
 	</body>
 </html>

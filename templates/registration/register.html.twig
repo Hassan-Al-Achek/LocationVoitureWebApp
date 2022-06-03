@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sign Up
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="register.css">
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h2 class="form-title">Sign up</h2>
+		{{ form_start(registrationForm) }}
+
+		<div class="form-element">
+			{{ form_widget(registrationForm.email) }}
+			{{ form_label(registrationForm.email) }}
+		</div>
+
+
+		<div class="form-element">
+			{{ form_widget(registrationForm.plainPassword) }}
+			{{ form_label(registrationForm.plainPassword, "Password") }}
+		</div>
+
+
+		<div class="form-element-agree">
+			{{ form_widget(registrationForm.agreeTerms) }}
+			{{ form_label(registrationForm.agreeTerms) }}
+		</div>
+
+		<button type="submit">
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+			Sign Up
+		</button>
+		{{ form_end(registrationForm) }}
+	</div>
+{% endblock %}
