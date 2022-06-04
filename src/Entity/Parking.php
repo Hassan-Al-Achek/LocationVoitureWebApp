@@ -32,6 +32,10 @@ class Parking
     {
         $this->cars = new ArrayCollection();
     }
+    public function __toString()
+    {
+        return $this->id;
+    }
 
     public function getID(): ?int
     {

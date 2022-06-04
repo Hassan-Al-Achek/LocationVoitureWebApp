@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cars Gallery
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('home.css')}}">
+	<link rel="stylesheet" href="{{asset('car.css')}}">
+{% endblock %}
+
+{% block content %}
+	<div class="car-info-container">
+		<div class="car-image"><img src="{{ asset(car.imagePath) }}" alt=""></div>
+		<div class="info-container">
+			<div class="info-elem">Car Mark:
+				{{car.mark}}</div>
+			<div class="info-elem">Car Model:
+				{{car.model}}</div>
+			<div class="info-elem">Number Of Seats:
+				{{car.numberOfSeats}}</div>
+			<div class="info-elem">License Plate:
+				{{car.licensePlate}}</div>
+			<div class="info-elem">Fuel:
+				{{car.fuel}}</div>
+			<div class="info-elem">Parking Number:
+				{{car.parkingNumber}}</div>
+			<div class="info-elem">Parking Street:
+				{{parking.street}}</div>
+			<div class="info-elem">Parking City:
+				{{parking.city}}</div>
+		</div>
+	</div>
+	<div>
+		{% if car.clientNumber != null %}
+			<div class="rent-button">
+				<a href="/rent">
+					<i class="fa-solid fa-circle-plus"></i>Rent
+				</a>
+			</div>
+		{% else %}
+			<div class="rent-button">
+				<a href="/rent">
+					<i class="fa-solid fa-circle-plus"></i>Rent
+				</a>
+			</div>
+		{% endif %}
+	</div>
+{% endblock %}

@@ -31,6 +31,9 @@ class Car
     #[ORM\Column(type: 'string', length: 255)]
     private $fuel;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $imagePath;
+
     public function getLicensePlate(): ?string
     {
         return $this->licensePlate;
@@ -109,6 +112,18 @@ class Car
     public function setFuel(string $fuel): self
     {
         $this->fuel = $fuel;
+
+        return $this;
+    }
+
+    public function getImagePath(): ?string
+    {
+        return $this->imagePath;
+    }
+
+    public function setImagePath(string $imagePath): self
+    {
+        $this->imagePath = $imagePath;
 
         return $this;
     }
