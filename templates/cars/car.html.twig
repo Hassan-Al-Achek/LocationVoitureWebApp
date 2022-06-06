@@ -22,6 +22,9 @@
 				{{car.licensePlate}}</div>
 			<div class="info-elem">Fuel:
 				{{car.fuel}}</div>
+			<div class="info-elem">Payment:
+				{{paymentInfo.amountPerHour}}
+				$ per hour</div>
 			<div class="info-elem">Parking Number:
 				{{car.parkingNumber}}</div>
 			<div class="info-elem">Parking Street:
@@ -31,17 +34,18 @@
 		</div>
 	</div>
 	<div>
-		{% if car.clientNumber != null %}
+		{% if car.clientNumber == null %}
 			<div class="rent-button">
 				<a href="/rent/{{car.licensePlate}}">
 					<i class="fa-solid fa-circle-plus"></i>Rent
 				</a>
 			</div>
 		{% else %}
-			<div class="rent-button">
-				<a href="/rent/{{car.licensePlate}}">
-					<i class="fa-solid fa-circle-plus"></i>Rent
+			<div class="rent-button-not">
+				<a href="#">
+					<i class="fa-solid fa-circle-plus"></i>Not Available
 				</a>
+
 			</div>
 		{% endif %}
 	</div>

@@ -61,3 +61,21 @@
 .rent-button i{
     margin: 5px;
 }
+
+.rent-button-not {
+    margin: 15px;
+}
+
+.rent-button-not a {
+    text-decoration: none;
+    color: white;
+    background-color: #36c7d0;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+}
+
+.rent-button-not i {
+    margin: 5px;
+}

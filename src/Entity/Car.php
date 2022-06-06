@@ -34,9 +34,6 @@ class Car
     #[ORM\Column(type: 'string', length: 255)]
     private $imagePath;
 
-    #[ORM\OneToOne(mappedBy: 'model', targetEntity: PaymentInfo::class, cascade: ['persist', 'remove'])]
-    private $paymentInfo;
-
     public function getLicensePlate(): ?string
     {
         return $this->licensePlate;
@@ -127,23 +124,6 @@ class Car
     public function setImagePath(string $imagePath): self
     {
         $this->imagePath = $imagePath;
-
-        return $this;
-    }
-
-    public function getPaymentInfo(): ?PaymentInfo
-    {
-        return $this->paymentInfo;
-    }
-
-    public function setPaymentInfo(PaymentInfo $paymentInfo): self
-    {
-        // set the owning side of the relation if necessary
-        if ($paymentInfo->getModel() !== $this) {
-            $paymentInfo->setModel($this);
-        }
-
-        $this->paymentInfo = $paymentInfo;
 
         return $this;
     }

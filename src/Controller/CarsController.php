@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Car;
 use App\Entity\Parking;
+use App\Entity\PaymentInfo;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -29,9 +30,14 @@ class CarsController extends AbstractController
         // dd($car);
         $repository = $doctrine->getRepository(Parking::class);
         $parking = $repository->find($car->getParkingNumber());
+
+        $repository = $doctrine->getRepository(PaymentInfo::class);
+        $paymentInfo = $repository->find($car->getLicensePlate());
+
         return $this->render('cars/car.html.twig', [
             'car' => $car,
-            'parking' => $parking
+            'parking' => $parking,
+            'paymentInfo' => $paymentInfo
         ]);
     }
 }

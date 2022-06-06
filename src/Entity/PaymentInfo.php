@@ -9,12 +9,10 @@ use Doctrine\ORM\Mapping as ORM;
 class PaymentInfo
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column(type: 'integer')]
-    private $id;
+    #[ORM\Column(type: 'string', length: 255)]
+    private $licensePlate;
 
-    #[ORM\OneToOne(inversedBy: 'paymentInfo', targetEntity: Car::class, cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\Column(type: 'string', length: 255)]
     private $model;
 
     #[ORM\Column(type: 'float')]
@@ -23,20 +21,27 @@ class PaymentInfo
     #[ORM\Column(type: 'float')]
     private $amountPerHour;
 
-    #[ORM\Column(type: 'integer', nullable: true)]
+    #[ORM\Column(type: 'integer')]
     private $reduction;
 
-    public function getId(): ?int
+    public function getLicensePlate(): ?string
     {
-        return $this->id;
+        return $this->licensePlate;
     }
 
-    public function getModel(): ?Car
+    public function setLicensePlate(string $licensePlate): self
+    {
+        $this->licensePlate = $licensePlate;
+
+        return $this;
+    }
+
+    public function getModel(): ?string
     {
         return $this->model;
     }
 
-    public function setModel(Car $model): self
+    public function setModel(string $model): self
     {
         $this->model = $model;
 
@@ -72,7 +77,7 @@ class PaymentInfo
         return $this->reduction;
     }
 
-    public function setReduction(?int $reduction): self
+    public function setReduction(int $reduction): self
     {
         $this->reduction = $reduction;
 
