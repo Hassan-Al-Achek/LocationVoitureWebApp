@@ -1,0 +1,33 @@
+.content{
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+.rent-container{
+    display: grid;
+    grid-template-columns: 3fr;
+    justify-items: center;
+    grid-gap: 10px;
+}
+
+.rent-container .form-title{
+    padding: 10px;
+}
+
+.form-element button{
+    background-color: #36c7d0;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.form-element button:hover {
+    color: #262833;
+}
+
+.form-element input{
+    padding: 10px;
+}

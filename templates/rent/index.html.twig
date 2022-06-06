@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Profile
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{asset('home.css')}}">
+	<link rel="stylesheet" href="{{asset('rent.css')}}">
+{% endblock %}
+
+{% block content %}
+
+	{{ form_start(rentForm) }}
+
+	<div class="rent-container">
+		<h2 class="form-title">Rent Duration</h2>
+		<div class="form-element">
+			{{ form_label(rentForm.dateOfDeparture.date) }}
+			{{ form_widget(rentForm.dateOfDeparture.date) }}
+
+			{{ form_label(rentForm.dateOfDeparture.time) }}
+			{{ form_widget(rentForm.dateOfDeparture.time) }}
+		</div>
+
+		<div class="form-element">
+			{{ form_label(rentForm.dateOfReturn.date) }}
+			{{ form_widget(rentForm.dateOfReturn.date) }}
+
+			{{ form_label(rentForm.dateOfReturn.time) }}
+			{{ form_widget(rentForm.dateOfReturn.time) }}
+		</div>
+
+		<div class="form-element">
+			<button type="submit">
+				Rent
+			</button>
+		</div>
+	</div>
+
+	{{ form_end(rentForm) }}
+
+{% endblock %}

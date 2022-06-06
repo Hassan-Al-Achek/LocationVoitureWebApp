@@ -33,13 +33,13 @@
 	<div>
 		{% if car.clientNumber != null %}
 			<div class="rent-button">
-				<a href="/rent">
+				<a href="/rent/{{car.licensePlate}}">
 					<i class="fa-solid fa-circle-plus"></i>Rent
 				</a>
 			</div>
 		{% else %}
 			<div class="rent-button">
-				<a href="/rent">
+				<a href="/rent/{{car.licensePlate}}">
 					<i class="fa-solid fa-circle-plus"></i>Rent
 				</a>
 			</div>
