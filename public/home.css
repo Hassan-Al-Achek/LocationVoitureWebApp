@@ -60,6 +60,10 @@ body {
     color: #262833;
 }
 
+.main-car{
+    width: 50vh;
+}
+
 /* 2 columns layout */
 @media (min-width: 500px) {
     .container {
@@ -202,7 +206,6 @@ body {
         -ms-border-radius: 10px;
         -o-border-radius: 10px;
     }
-
 }
 
 .logo {
