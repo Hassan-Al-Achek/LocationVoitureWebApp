@@ -1,43 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Car index{% endblock %}
+{% block title %}Car index
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href={{asset("forms.css")}}>
+{% endblock %}
+
 
 {% block body %}
-    <h1>Car index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>LicensePlate</th>
-                <th>Mark</th>
-                <th>Model</th>
-                <th>NumberOfSeats</th>
-                <th>Fuel</th>
-                <th>ImagePath</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for car in cars %}
-            <tr>
-                <td>{{ car.licensePlate }}</td>
-                <td>{{ car.mark }}</td>
-                <td>{{ car.model }}</td>
-                <td>{{ car.numberOfSeats }}</td>
-                <td>{{ car.fuel }}</td>
-                <td>{{ car.imagePath }}</td>
-                <td>
-                    <a href="{{ path('app_car_show', {'licensePlate': car.licensePlate}) }}">show</a>
-                    <a href="{{ path('app_car_edit', {'licensePlate': car.licensePlate}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<div class="container">
+		<h1 class="container-elem">Car index</h1>
+		<div class="container-elem">LicensePlate</div>
+		<div class="container-elem">Mark</div>
+		<div class="container-elem">Model</div>
+		<div class="container-elem">NumberOfSeats</div>
+		<div class="container-elem">Fuel</div>
+		<div class="container-elem">ImagePath</div>
+		<div class="container-elem">actions</div>
 
-    <a href="{{ path('app_car_new') }}">Create new</a>
+		{% for car in cars %}
+			<div class="container-elem">{{ car.licensePlate }}</div>
+			<div class="container-elem">{{ car.mark }}</div>
+			<div class="container-elem">{{ car.model }}</div>
+			<div class="container-elem">{{ car.numberOfSeats }}</div>
+			<div class="container-elem">{{ car.fuel }}</div>
+			<div class="container-elem">{{ car.imagePath }}</div>
+			<div class="container-elem">
+				<a href="{{ path('app_car_show', {'licensePlate': car.licensePlate}) }}" class="container-elem">show</a>
+				<a href="{{ path('app_car_edit', {'licensePlate': car.licensePlate}) }}" class="container-elem">edit</a>
+			</div>
+		{% else %}
+			<div class="container-elem">no records found</div>
+		{% endfor %}
+		<div class="container-elem">
+			<a href="{{ path('app_car_new') }}" class="container-elem">Create new</a>
+		</div>
+	</div>
+
 {% endblock %}

@@ -1,39 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Parking index{% endblock %}
+{% block title %}Parking index
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href={{asset("forms-parking.css")}}>
+{% endblock %}
 
 {% block body %}
-    <h1>Parking index</h1>
+	<div class="container">
+		<h1 class="container-elem">Parking index</h1>
+		<div class="container-elem">Id</div>
+		<div class="container-elem">Capacity</div>
+		<div class="container-elem">Street</div>
+		<div class="container-elem">City</div>
+		<div class="container-elem">actions</div>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Capacity</th>
-                <th>Street</th>
-                <th>City</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for parking in parkings %}
-            <tr>
-                <td>{{ parking.id }}</td>
-                <td>{{ parking.Capacity }}</td>
-                <td>{{ parking.street }}</td>
-                <td>{{ parking.city }}</td>
-                <td>
-                    <a href="{{ path('app_parking_show', {'id': parking.id}) }}">show</a>
-                    <a href="{{ path('app_parking_edit', {'id': parking.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_parking_new') }}">Create new</a>
+		{% for parking in parkings %}
+			<div class="container-elem">{{ parking.id }}</div>
+			<div class="container-elem">{{ parking.Capacity }}</div>
+			<div class="container-elem">{{ parking.street }}</div>
+			<div class="container-elem">{{ parking.city }}</div>
+			<div class="container-elem">
+				<a href="{{ path('app_parking_show', {'id': parking.id}) }}" class="container-elem">show</a>
+				<a href="{{ path('app_parking_edit', {'id': parking.id}) }}" class="container-elem">edit</a>
+			</div>
+		{% else %}
+			<div class="container-elem">no records found</div>
+		{% endfor %}
+		<div class="container-elem">
+			<a href="{{ path('app_parking_new') }}" class="container-elem">Create new</a>
+		</div>
+	</div>
 {% endblock %}
