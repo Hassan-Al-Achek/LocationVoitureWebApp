@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Client;
 use App\Entity\Contrat;
 use App\Entity\Invoice;
 use Doctrine\Persistence\ManagerRegistry;
@@ -19,14 +20,12 @@ class ProfileController extends AbstractController
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
 
         $entityManager = $doctrine->getManager();
-        $repository = $entityManager->getRepository(Invoice::class);
-        $user = $this->getUser();
+        $repository = $entityManager->getRepository(Client::class);
+        $userID = $this->getUser();
+        $client = $repository->find($userID);
 
-        dd($user);
-        $invoices = $repository->findAll($user->getId());
-
-        $repository = $entityManager->getRepository(Contrat::class);
-        $contrats = $repository->findAll($user->getId());
+        $invoices = $client->getInvoices();
+        $contrats = $client->getContrats();
 
         return $this->render('profile/index.html.twig', [
             'invoices' => $invoices,
@@ -43,27 +42,32 @@ class ProfileController extends AbstractController
 
         $invoice = $repository->find($invoiceNumber);
 
-        // Configure Dompdf according to your needs
-        $pdfOptions = new Options();
-        $pdfOptions->set('defaultFont', 'Arial');
+        if ($invoice->getClientNumber()->getId() == $this->getUser()->getId()) {
 
-        // Instantiate Dompdf with our options
-        $dompdf = new Dompdf($pdfOptions);
+            // Configure Dompdf according to your needs
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
 
-        $html = $this->renderView('PDFsTemplates/invoice.html.twig', [
-            'invoice' => $invoice
-        ]);
+            // Instantiate Dompdf with our options
+            $dompdf = new Dompdf($pdfOptions);
 
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-        $dompdf->stream($invoice->getinvoiceNumber() . ".pdf", [
-            "Attachment" => true
-        ]);
+            $html = $this->renderView('PDFsTemplates/invoice.html.twig', [
+                'invoice' => $invoice
+            ]);
 
-        return new Response('', 200, [
-            'Content-Type' => 'application/pdf',
-        ]);
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+            $dompdf->stream($invoice->getinvoiceNumber() . ".pdf", [
+                "Attachment" => true
+            ]);
+
+            return new Response('', 200, [
+                'Content-Type' => 'application/pdf',
+            ]);
+        } else {
+            return new Response('</h1> I Can See You :)</h1>', 404);
+        }
     }
 
     #[Route('/pdf/contrat/{contratNumber}', methods: ['GET', 'HEAD'], name: 'app_cpdf')]
@@ -75,26 +79,30 @@ class ProfileController extends AbstractController
 
         $contrat = $repository->find($contratNumber);
 
-        // Configure Dompdf according to your needs
-        $pdfOptions = new Options();
-        $pdfOptions->set('defaultFont', 'Arial');
+        if ($contrat->getClientNumber()->getId() == $this->getUser()->getId()) {
+            // Configure Dompdf according to your needs
+            $pdfOptions = new Options();
+            $pdfOptions->set('defaultFont', 'Arial');
 
-        // Instantiate Dompdf with our options
-        $dompdf = new Dompdf($pdfOptions);
+            // Instantiate Dompdf with our options
+            $dompdf = new Dompdf($pdfOptions);
 
-        $html = $this->renderView('PDFsTemplates/contrat.html.twig', [
-            'contrat' => $contrat
-        ]);
+            $html = $this->renderView('PDFsTemplates/contrat.html.twig', [
+                'contrat' => $contrat
+            ]);
 
-        $dompdf->loadHtml($html);
-        $dompdf->setPaper('A4', 'portrait');
-        $dompdf->render();
-        $dompdf->stream($contrat->getcontratNumber() . ".pdf", [
-            "Attachment" => true
-        ]);
+            $dompdf->loadHtml($html);
+            $dompdf->setPaper('A4', 'portrait');
+            $dompdf->render();
+            $dompdf->stream($contrat->getcontratNumber() . ".pdf", [
+                "Attachment" => true
+            ]);
 
-        return new Response('', 200, [
-            'Content-Type' => 'application/pdf',
-        ]);
+            return new Response('', 200, [
+                'Content-Type' => 'application/pdf',
+            ]);
+        } else {
+            return new Response('</h1> I Can See You :)</h1>', 404);
+        }
     }
 }
