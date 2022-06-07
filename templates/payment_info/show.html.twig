@@ -1,38 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PaymentInfo{% endblock %}
+{% block title %}PaymentInfo
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href={{asset("show-payment.css")}}>
+{% endblock %}
+
 
 {% block body %}
-    <h1>PaymentInfo</h1>
+	<div class="container">
+		<h1 class="container-elem">PaymentInfo</h1>
+		<div class="container-elem">LicensePlate</div>
+		<div class="container-elem">Model</div>
+		<div class="container-elem">KM</div>
+		<div class="container-elem">AmountPerHour</div>
+		<div class="container-elem">Reduction</div>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>LicensePlate</th>
-                <td>{{ payment_info.licensePlate }}</td>
-            </tr>
-            <tr>
-                <th>Model</th>
-                <td>{{ payment_info.model }}</td>
-            </tr>
-            <tr>
-                <th>KM</th>
-                <td>{{ payment_info.KM }}</td>
-            </tr>
-            <tr>
-                <th>AmountPerHour</th>
-                <td>{{ payment_info.amountPerHour }}</td>
-            </tr>
-            <tr>
-                <th>Reduction</th>
-                <td>{{ payment_info.reduction }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<div class="container-elem">{{ payment_info.licensePlate }}</div>
+		<div class="container-elem">{{ payment_info.model }}</div>
+		<div class="container-elem">{{ payment_info.KM }}</div>
+		<div class="container-elem">{{ payment_info.amountPerHour }}</div>
+		<div class="container-elem">{{ payment_info.reduction }}</div>
 
-    <a href="{{ path('app_payment_info_index') }}">back to list</a>
+		<div class="container-elem">
+			<a href="{{ path('app_payment_info_index') }}" class="container-elem">back to list</a>
+		</div>
 
-    <a href="{{ path('app_payment_info_edit', {'licensePlate': payment_info.licensePlate}) }}">edit</a>
+		<div class="container-elem">
+			<a href="{{ path('app_payment_info_edit', {'licensePlate': payment_info.licensePlate}) }}" class="container-elem">edit</a>
+		</div>
 
-    {{ include('payment_info/_delete_form.html.twig') }}
+		<div class="container-elem-del container-elem">
+			{{ include('payment_info/_delete_form.html.twig') }}
+		</div>
+	</div>
 {% endblock %}

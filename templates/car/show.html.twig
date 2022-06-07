@@ -1,42 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Car{% endblock %}
+{% block title %}Car
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href={{asset("show-car.css")}}>
+{% endblock %}
 
 {% block body %}
-    <h1>Car</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>LicensePlate</th>
-                <td>{{ car.licensePlate }}</td>
-            </tr>
-            <tr>
-                <th>Mark</th>
-                <td>{{ car.mark }}</td>
-            </tr>
-            <tr>
-                <th>Model</th>
-                <td>{{ car.model }}</td>
-            </tr>
-            <tr>
-                <th>NumberOfSeats</th>
-                <td>{{ car.numberOfSeats }}</td>
-            </tr>
-            <tr>
-                <th>Fuel</th>
-                <td>{{ car.fuel }}</td>
-            </tr>
-            <tr>
-                <th>ImagePath</th>
-                <td>{{ car.imagePath }}</td>
-            </tr>
-        </tbody>
-    </table>
+	<div class="container">
+		<h1 class="container-elem">Car</h1>
+		<div class="container-elem">LicensePlate</div>
+		<div class="container-elem">Mark</div>
+		<div class="container-elem">Model</div>
+		<div class="container-elem">NumberOfSeats</div>
+		<div class="container-elem">Fuel</div>
+		<div class="container-elem">ImagePath</div>
 
-    <a href="{{ path('app_car_index') }}">back to list</a>
+		<div class="container-elem">{{ car.licensePlate }}</div>
+		<div class="container-elem">{{ car.mark }}</div>
+		<div class="container-elem">{{ car.model }}</div>
+		<div class="container-elem">{{ car.numberOfSeats }}</div>
+		<div class="container-elem">{{ car.fuel }}</div>
+		<div class="container-elem">{{ car.imagePath }}</div>
 
-    <a href="{{ path('app_car_edit', {'licensePlate': car.licensePlate}) }}">edit</a>
+		<div class="container-elem">
+			<a href="{{ path('app_car_index') }}" class="container-elem">back to list</a>
+		</div>
 
-    {{ include('car/_delete_form.html.twig') }}
-{% endblock %}
+		<div class="container-elem">
+			<a href="{{ path('app_car_edit', {'licensePlate': car.licensePlate}) }}" class="container-elem">edit</a>
+		</div>
+
+		<div class="container-elem-del container-elem">
+			{{ include('car/_delete_form.html.twig') }}
+		</div>
+
+	{% endblock %}
