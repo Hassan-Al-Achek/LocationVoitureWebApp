@@ -1,5 +1,5 @@
 <div class="container">
-	<h2 class="form-title">Create new Parking</h2>
+	<h2 class="form-title">{{ form_title | default('Create new parking') }}</h2>
 
 	{{ form_start(form) }}
 	<div class="form-element">

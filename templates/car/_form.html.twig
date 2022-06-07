@@ -1,5 +1,7 @@
 <div class="container">
-	<h2 class="form-title">Create new Car</h2>
+	{% block formTitle %}
+		<h2 class="form-title">{{ form_title | default('Create new Car') }}</h2>
+	{% endblock %}
 
 	{{ form_start(form) }}
 	<div class="form-element">

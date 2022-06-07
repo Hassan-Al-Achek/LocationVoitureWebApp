@@ -1,13 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Parking{% endblock %}
+{% block title %}Edit Parking
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href={{asset("edit-form.css")}}>
+{% endblock %}
 
 {% block body %}
-    <h1>Edit Parking</h1>
-
-    {{ include('parking/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_parking_index') }}">back to list</a>
-
-    {{ include('parking/_delete_form.html.twig') }}
+	{{ include('parking/_form.html.twig', {'button_label': 'Update',  'form_title':'Edit Parking'}) }}
 {% endblock %}
