@@ -93,7 +93,7 @@ class AppFixtures extends Fixture
         # Payment Info #2
         $payment1 = new PaymentInfo();
         $payment1->setLicensePlate("12345678");
-        $payment1->setModel("2018 - M5");
+        $payment1->setModel("2018-M5");
         $payment1->setKM(60);
         $payment1->setAmountPerHour(70);
         $payment1->setReduction(0);
