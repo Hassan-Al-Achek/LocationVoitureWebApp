@@ -1,3 +1,3 @@
-php bin/console make:migration
-php bin/console doctrine:migrations:migrate --no-interaction
+./bin/console make:migration --no-interaction
+./bin/console doctrine:migrations:migrate --no-interaction
 
