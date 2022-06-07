@@ -23,6 +23,43 @@ body {
         "footer";
 }
 
+.logo {
+    /* background-color: #c3073f; */
+    height: 50px;
+    padding: 5px;
+    text-align: center;
+    background-color: #ffa48e;
+    border: 2px solid #ffa48e;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.main-nav li {
+    background-color: #36c7d0;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.main-nav li a {
+    text-decoration: none;
+    color: white;
+}
+
+.main-nav li a:hover {
+    text-decoration: none;
+    color: #262833;
+}
+
 /* 2 columns layout */
 @media (min-width: 500px) {
     .container {
