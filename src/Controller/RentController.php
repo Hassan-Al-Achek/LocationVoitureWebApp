@@ -74,8 +74,8 @@ class RentController extends AbstractController
         $invoice->setInvoiceDate(new \DateTime('now'));
         $invoice->setKmCounter($payment->getKM());
 
-        $durationInterval = $contrat->getDateOfDeparture()->diff($contrat->getDateOfReturn());
-        $durationOfRent = ($durationInterval->y) * 8760 + ($durationInterval->m) * 730 + ($durationInterval->h) + ($durationInterval->i) / 60;
+        $durationInterval = $contrat->getDateOfReturn()->diff($contrat->getDateOfDeparture());
+        $durationOfRent = ($durationInterval->y) * 8760 + ($durationInterval->m) * 730 + ($durationInterval->d) * 24 + ($durationInterval->h) + ($durationInterval->i) / 60;
 
         // Money To Pay Before Reduction(In Case A Reduction Exist)
         $ptAmount = $durationOfRent * $payment->getAmountPerHour();

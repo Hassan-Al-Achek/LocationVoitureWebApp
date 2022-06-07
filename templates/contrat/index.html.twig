@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contrat index{% endblock %}
+
+{% block body %}
+    <h1>Contrat index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ContratNumber</th>
+                <th>LicensePlate</th>
+                <th>Type</th>
+                <th>DateOfDeparture</th>
+                <th>DateOfReturn</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contrat in contrats %}
+            <tr>
+                <td>{{ contrat.contratNumber }}</td>
+                <td>{{ contrat.licensePlate }}</td>
+                <td>{{ contrat.type }}</td>
+                <td>{{ contrat.dateOfDeparture ? contrat.dateOfDeparture|date('Y-m-d H:i:s T') : '' }}</td>
+                <td>{{ contrat.dateOfReturn ? contrat.dateOfReturn|date('Y-m-d H:i:s T') : '' }}</td>
+                <td>
+                    <a href="{{ path('app_contrat_show', {'contratNumber': contrat.contratNumber}) }}">show</a>
+                    <a href="{{ path('app_contrat_edit', {'contratNumber': contrat.contratNumber}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_contrat_new') }}">Create new</a>
+{% endblock %}

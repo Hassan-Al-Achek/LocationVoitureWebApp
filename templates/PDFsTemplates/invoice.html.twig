@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Invoice PDF</title>
+	</head>
+	<body>
+		<h1>Get Your Key</h1>
+		<hr>
+		<h4>Prenom:
+			{{app.user.firstName}}</h4>
+		<h4>Nom:
+			{{app.user.lastName}}</h4>
+		<h4>Date:
+			{{ invoice.invoiceDate | date("m/d/Y - h:i a")}}</h4>
+		<h4>Numéro de client:
+			{{ invoice.clientNumber }}</h4>
+		<h4>Numéro de facture:
+			{{ invoice.invoiceNumber }}</h4>
+		<h4>Km au compteur:
+			{{ invoice.kmCounter }}
+			Km/h</h4>
+		<h4>Montant HT:
+			{{ invoice.ptAmount }}$</h4>
+		<h4>Montant a payer:
+			{{ invoice.ammountToPay }}$</h4>
+		<hr>
+		<h1>Get Your Key | Finance</h1>
+	</body>
+</html>

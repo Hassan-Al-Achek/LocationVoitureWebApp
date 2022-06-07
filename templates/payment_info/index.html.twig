@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PaymentInfo index{% endblock %}
+
+{% block body %}
+    <h1>PaymentInfo index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>LicensePlate</th>
+                <th>Model</th>
+                <th>KM</th>
+                <th>AmountPerHour</th>
+                <th>Reduction</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for payment_info in payment_infos %}
+            <tr>
+                <td>{{ payment_info.licensePlate }}</td>
+                <td>{{ payment_info.model }}</td>
+                <td>{{ payment_info.KM }}</td>
+                <td>{{ payment_info.amountPerHour }}</td>
+                <td>{{ payment_info.reduction }}</td>
+                <td>
+                    <a href="{{ path('app_payment_info_show', {'licensePlate': payment_info.licensePlate}) }}">show</a>
+                    <a href="{{ path('app_payment_info_edit', {'licensePlate': payment_info.licensePlate}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_payment_info_new') }}">Create new</a>
+{% endblock %}

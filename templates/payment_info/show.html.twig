@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PaymentInfo{% endblock %}
+
+{% block body %}
+    <h1>PaymentInfo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>LicensePlate</th>
+                <td>{{ payment_info.licensePlate }}</td>
+            </tr>
+            <tr>
+                <th>Model</th>
+                <td>{{ payment_info.model }}</td>
+            </tr>
+            <tr>
+                <th>KM</th>
+                <td>{{ payment_info.KM }}</td>
+            </tr>
+            <tr>
+                <th>AmountPerHour</th>
+                <td>{{ payment_info.amountPerHour }}</td>
+            </tr>
+            <tr>
+                <th>Reduction</th>
+                <td>{{ payment_info.reduction }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_payment_info_index') }}">back to list</a>
+
+    <a href="{{ path('app_payment_info_edit', {'licensePlate': payment_info.licensePlate}) }}">edit</a>
+
+    {{ include('payment_info/_delete_form.html.twig') }}
+{% endblock %}

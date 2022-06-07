@@ -18,6 +18,23 @@
 				{{ app.user.lastName }}</div>
 			<div class='profile-elem'>Email:
 				{{ app.user.email }}</div>
+			<h2>My invoices:</h2>
+			{% for invoice in invoices %}
+				<div class='profile-elem'>
+					<a href="/pdf/invoice/{{ invoice.invoiceNumber }}">Invoice #
+						{{ invoice.invoiceNumber }}
+						- Download pdf</a>
+				</div>
+			{% endfor %}
+
+			<h2>My contrats:</h2>
+			{% for contrat in contrats %}
+				<div class='profile-elem'>
+					<a href="/pdf/contrat/{{ contrat.contratNumber }}">Contrat #
+						{{ contrat.contratNumber }}
+						- Download pdf</a>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
 {% endblock %}

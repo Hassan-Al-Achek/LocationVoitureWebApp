@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Car;
+use App\Entity\Client;
+use App\Entity\Contrat;
 use App\Entity\Parking;
 use App\Entity\PaymentInfo;
 use Doctrine\Persistence\ManagerRegistry;
@@ -17,6 +19,7 @@ class CarsController extends AbstractController
     {
         $repository = $doctrine->getRepository(Car::class);
         $cars = $repository->findAll();
+
         return $this->render('cars/index.html.twig', [
             'cars' => $cars
         ]);
@@ -39,5 +42,41 @@ class CarsController extends AbstractController
             'parking' => $parking,
             'paymentInfo' => $paymentInfo
         ]);
+    }
+
+
+    // Function To End The Rent Of The Car 
+    private function realeseRent(ManagerRegistry $doctrine)
+    {
+        $entityManager = $doctrine->getManager();
+        $repository = $doctrine->getRepository(Car::class);
+        $cars = $repository->findAll();
+
+        // dd($cars);
+        foreach ($cars as $car) {
+            if ($car->getClientNumber() !== null) {
+                $clientID = $car->getClientNumber()->getId();
+                $repository = $doctrine->getRepository(Client::class);
+
+
+                $repository = $doctrine->getRepository(Contrat::class);
+                $contrats = $repository->findAll($clientID);
+
+                foreach ($contrats as $contrat) {
+                    $currentTime = (new \DateTime('now'));
+
+                    if ($contrat->getLicensePlate() === $car->getLicensePlate()) {
+                        // $duration = date_diff(($contrat->getDateOfReturn()), $currentTime);
+                        // dd($currentTime > $contrat->getDateOfReturn());
+                        $dateOfReturn = $contrat->getDateOfReturn()->modify('-5 min');
+                        dd($dateOfReturn);
+                        if ($currentTime == $dateOfReturn) {
+                            $car->setClientNumber(null);
+                            $entityManager->flush();
+                        }
+                    }
+                }
+            }
+        }
     }
 }

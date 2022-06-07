@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Contrat PDF</title>
+	</head>
+	<body>
+		<h1>Get Your Key | Contrat #{{contrat.contratNumber}}</h1>
+		<h2>Contrat de location d'une voiture</h2>
+		<hr>
+		<h4>ENTRE LES SOUSSIGNES,</h4>
+		<h4>Appelé ci-après le loueur, Get Your Key
+		</h4>
+		<h4>ET</h4>
+		<h4>Appelé ci-après le locataire,
+			{{app.user.firstName}}
+			{{app.user.lastName}}</h4>
+
+		<h4>IL A ETE CONVENU CE QUI SUIT;</h4>
+		<hr>
+		<ol>
+			<li>
+				<h4>Nature et date d'effet du contrat
+				</h4>
+				<h4>Get Your Key met à disposition du
+					{{app.user.firstName}}
+					{{app.user.lastName}}, un véhicule de marque
+					{{ contrat.type }}, immatriculé
+					{{ contrat.licensePlate}}
+				</h4>
+			</li>
+			<li>
+				<h4>Etat du véhicule</h4>
+				<h4>
+					Lors de la remise du véhicule et lors de sa restitution, un procès-verbal de l'état du véhicule sera établi entre le locataire et le loueur. Le véhicule devra être restitué le même état que lors de sa remise. Toutes les détériorations sur le véhicule constatées sur le PV de sortie seront à la charge du locataire. Le locataire certifie être en possession du permis l'autorisant à conduire le présent véhicule.
+				</h4>
+			</li>
+		</ol>
+		<hr>
+		<h4>Date De Depart:{{contrat.dateOfDeparture | date("m/d/Y - h:i a")}}</h4>
+		<h4>Date De Retour:{{contrat.dateOfReturn | date("m/d/Y - h:i a")}}</h4>
+	</body>
+</html>
