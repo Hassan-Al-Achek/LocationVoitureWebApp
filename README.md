@@ -29,9 +29,10 @@ Password="123456Admin"
 - Admin Can Make The Car Available Again, By Going To `Cars` (The Button On The Left) And Editing The Car Information
 - NOTE: I Write A Code To Automatically Release Car When The Return Date Is Equal To The Current Date, But The Code Doesn't Work, And I Think That: The Function need to Run As Asynchronous Function To Work.
 
-##  Admin Vs Normal User (Client):
+## Admin Vs Normal User (Client):
 
 - Admin had more tools to manage and update cars, parking, and paymentInfo
 
 ## New E/R Diagaram:
-![[Pasted image 20220607202056.png]]
+
+![ERDiagram](/ERDiagram.png)
