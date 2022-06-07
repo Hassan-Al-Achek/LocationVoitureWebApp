@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route('/payment/info')]
+#[Route('/admin/payment/info')]
 class PaymentInfoController extends AbstractController
 {
     #[Route('/', name: 'app_payment_info_index', methods: ['GET'])]
@@ -69,7 +69,7 @@ class PaymentInfoController extends AbstractController
     #[Route('/{licensePlate}', name: 'app_payment_info_delete', methods: ['POST'])]
     public function delete(Request $request, PaymentInfo $paymentInfo, PaymentInfoRepository $paymentInfoRepository): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$paymentInfo->getLicensePlate(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $paymentInfo->getLicensePlate(), $request->request->get('_token'))) {
             $paymentInfoRepository->remove($paymentInfo, true);
         }
 

@@ -48,6 +48,26 @@
 								About Us
 							</a>
 						</li>
+						{% if is_granted('ROLE_ADMIN') %}
+							<li>
+								<a class="nav-link" href="/admin/car">
+									<i class="fa-solid fa-car"></i>
+									Cars
+								</a>
+							</li>
+							<li>
+								<a class="nav-link" href="/admin/parking">
+									<i class="fa-solid fa-square-parking"></i>
+									Parking
+								</a>
+							</li>
+							<li>
+								<a class="nav-link" href="/admin/payment/info">
+									<i class="fa-solid fa-money-bill-1-wave"></i>
+									Payment Info
+								</a>
+							</li>
+						{% endif %}
 						{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 							<li>
 								<a class="nav-link" href="/profile">
@@ -86,4 +106,4 @@
 			</div>
 		{% endblock %}
 	</body>
-</html>
+</html></body></html>
