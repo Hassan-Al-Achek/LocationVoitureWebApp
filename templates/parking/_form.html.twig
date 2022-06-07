@@ -1,4 +1,31 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container">
+	<h2 class="form-title">Create new Parking</h2>
+
+	{{ form_start(form) }}
+	<div class="form-element">
+		{{ form_widget(form.Capacity) }}
+		{{ form_label(form.Capacity) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.street) }}
+		{{ form_label(form.street) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.city) }}
+		{{ form_label(form.city) }}
+	</div>
+
+	<div class="buttons-box">
+		<div class="button-one">
+			<button>
+				{{ button_label|default('Save') }}
+			</button>
+		</div>
+		<div class="button-two">
+			<a href="{{ path('app_parking_index') }}">back to list</a>
+		</div>
+	</div>
+	{{ form_end(form) }}
+</div>

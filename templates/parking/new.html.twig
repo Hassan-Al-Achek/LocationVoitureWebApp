@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Parking{% endblock %}
+{% block title %}New Parking
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href={{asset("new-form.css")}}>
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Parking</h1>
-
-    {{ include('parking/_form.html.twig') }}
-
-    <a href="{{ path('app_parking_index') }}">back to list</a>
+	{{ include('parking/_form.html.twig') }}
 {% endblock %}

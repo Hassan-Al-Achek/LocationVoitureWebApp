@@ -1,4 +1,56 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
-{{ form_end(form) }}
+<div class="container">
+	<h2 class="form-title">Create new Car</h2>
+
+	{{ form_start(form) }}
+	<div class="form-element">
+		{{ form_widget(form.licensePlate) }}
+		{{ form_label(form.licensePlate) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.mark) }}
+		{{ form_label(form.mark) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.model) }}
+		{{ form_label(form.model) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.numberOfSeats) }}
+		{{ form_label(form.numberOfSeats) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.fuel) }}
+		{{ form_label(form.fuel) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.imagePath) }}
+		{{ form_label(form.imagePath) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.clientNumber) }}
+		{{ form_label(form.clientNumber) }}
+	</div>
+
+	<div class="form-element">
+		{{ form_widget(form.parkingNumber) }}
+		{{ form_label(form.parkingNumber) }}
+	</div>
+
+	<div class="buttons-box">
+		<div class="button-one">
+			<button>
+				{{ button_label|default('Save') }}
+			</button>
+		</div>
+		<div class="button-two">
+			<a href="{{ path('app_car_index') }}">back to list</a>
+		</div>
+	</div>
+	{{ form_end(form) }}
+</div>

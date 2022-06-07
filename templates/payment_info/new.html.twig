@@ -1,11 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New PaymentInfo{% endblock %}
+{% block title %}New Payment Info
+{% endblock %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" href={{asset("new-form.css")}}>
+{% endblock %}
 
 {% block body %}
-    <h1>Create new PaymentInfo</h1>
-
-    {{ include('payment_info/_form.html.twig') }}
-
-    <a href="{{ path('app_payment_info_index') }}">back to list</a>
+	{{ include('payment_info/_form.html.twig') }}
 {% endblock %}

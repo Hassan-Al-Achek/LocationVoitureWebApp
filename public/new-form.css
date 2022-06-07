@@ -1,0 +1,106 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #262833;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: #7e8ce0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 15px 25px #262833;
+}
+
+.container h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+}
+
+.container .form-element {
+    position: relative;
+}
+
+.container .form-element input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+}
+
+.container .form-element label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.container .form-element input:focus~label,
+.container .form-element input:valid~label {
+    top: -20px;
+    left: 0;
+    color: #ffaf5f;
+    font-size: 12px;
+}
+
+.container  button,
+.container a, 
+.container select{
+    border: none;
+    background-color: #7e8ce0;
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    margin-top: 40px;
+    letter-spacing: 4px;
+}
+
+.container button,
+.container a{
+    background-color: #ffaf5f;
+    border-radius: 10px;
+}
+.container button span,
+.container a span {
+    position: absolute;
+    display: block;
+}
+
+.buttons-box {
+    display: flex;
+}
+
+.button-one {
+    flex: 1 1 auto;
+}
+
+.button-two {
+    flex: 1 1 auto;
+}
